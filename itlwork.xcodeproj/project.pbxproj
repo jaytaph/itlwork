@@ -25,6 +25,7 @@
 		423E598416EA1ADF009DB652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Tweet.xib; sourceTree = "<group>"; };
 		423E598616EA2C02009DB652 /* itlwMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainViewController.h; sourceTree = "<group>"; };
 		423E598716EA2C02009DB652 /* itlwMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainViewController.m; sourceTree = "<group>"; };
+		423E598916EA4778009DB652 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BWToolkit.ibplugin; path = ../../../Downloads/BWToolkit/BWToolkit.ibplugin; sourceTree = "<group>"; };
 		42474DBA16E8E5BB00ADD471 /* itlwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itlwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42474DBE16E8E5BB00ADD471 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		42474DC116E8E5BB00ADD471 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -72,6 +73,7 @@
 		42474DAF16E8E5BB00ADD471 = {
 			isa = PBXGroup;
 			children = (
+				423E598916EA4778009DB652 /* BWToolkit.ibplugin */,
 				42474DC416E8E5BB00ADD471 /* itlwork */,
 				42474DBB16E8E5BB00ADD471 /* Products */,
 			);
