@@ -12,7 +12,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-@property (weak) IBOutlet NSTextField *tweetbox;
-@property (weak) IBOutlet NSView *TweetCount;
+
+@property (weak) IBOutlet NSTextField *MessageBox;
+@property (weak) IBOutlet NSTextField *MessageLength;
 
 @end

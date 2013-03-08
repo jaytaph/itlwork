@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface itlwMainViewController : NSViewController
-    
+
 @end
