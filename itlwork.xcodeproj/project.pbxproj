@@ -15,9 +15,6 @@
 		42474DCF16E8E5BB00ADD471 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 42474DCD16E8E5BB00ADD471 /* Credits.rtf */; };
 		42474DD216E8E5BB00ADD471 /* itlwAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */; };
 		42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42474DD316E8E5BB00ADD471 /* MainMenu.xib */; };
-		42474DDC16E8E62D00ADD471 /* Eagle-RPO-sketch-02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42474DDB16E8E62D00ADD471 /* Eagle-RPO-sketch-02.jpg */; };
-		42474DDE16E8E81600ADD471 /* foobar.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 42474DDD16E8E81600ADD471 /* foobar.iconset */; };
-		42474DE016E8E83D00ADD471 /* foobar.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 42474DDF16E8E83D00ADD471 /* foobar.iconset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +33,7 @@
 		42474DD016E8E5BB00ADD471 /* itlwAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = itlwAppDelegate.h; sourceTree = "<group>"; };
 		42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = itlwAppDelegate.m; sourceTree = "<group>"; };
 		42474DD416E8E5BB00ADD471 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		42474DDB16E8E62D00ADD471 /* Eagle-RPO-sketch-02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Eagle-RPO-sketch-02.jpg"; sourceTree = "<group>"; };
 		42474DDD16E8E81600ADD471 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = foobar.iconset; path = ../../../../Desktop/foobar.iconset; sourceTree = "<group>"; };
-		42474DDF16E8E83D00ADD471 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = foobar.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +48,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423E597916EA1625009DB652 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				42474DD316E8E5BB00ADD471 /* MainMenu.xib */,
+				423E596E16E9D96C009DB652 /* tweet.xib */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		423E597A16EA163C009DB652 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				42474DDD16E8E81600ADD471 /* foobar.iconset */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		42474DAF16E8E5BB00ADD471 = {
 			isa = PBXGroup;
 			children = (
-				42474DDF16E8E83D00ADD471 /* foobar.iconset */,
-				42474DDB16E8E62D00ADD471 /* Eagle-RPO-sketch-02.jpg */,
 				42474DC416E8E5BB00ADD471 /* itlwork */,
 				42474DBB16E8E5BB00ADD471 /* Products */,
 			);
@@ -96,10 +106,8 @@
 			children = (
 				42474DD016E8E5BB00ADD471 /* itlwAppDelegate.h */,
 				42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */,
-				42474DD316E8E5BB00ADD471 /* MainMenu.xib */,
 				423E597116E9E649009DB652 /* itlw.xcdatamodeld */,
 				42474DC516E8E5BB00ADD471 /* Supporting Files */,
-				423E596E16E9D96C009DB652 /* tweet.xib */,
 				42474DBD16E8E5BB00ADD471 /* Frameworks */,
 			);
 			path = itlwork;
@@ -108,7 +116,8 @@
 		42474DC516E8E5BB00ADD471 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				42474DDD16E8E81600ADD471 /* foobar.iconset */,
+				423E597A16EA163C009DB652 /* Images */,
+				423E597916EA1625009DB652 /* xibs */,
 				42474DC616E8E5BB00ADD471 /* itlwork-Info.plist */,
 				42474DC716E8E5BB00ADD471 /* InfoPlist.strings */,
 				42474DCA16E8E5BB00ADD471 /* main.m */,
@@ -173,9 +182,6 @@
 				42474DC916E8E5BB00ADD471 /* InfoPlist.strings in Resources */,
 				42474DCF16E8E5BB00ADD471 /* Credits.rtf in Resources */,
 				42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */,
-				42474DDC16E8E62D00ADD471 /* Eagle-RPO-sketch-02.jpg in Resources */,
-				42474DDE16E8E81600ADD471 /* foobar.iconset in Resources */,
-				42474DE016E8E83D00ADD471 /* foobar.iconset in Resources */,
 				423E596F16E9D96C009DB652 /* tweet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
