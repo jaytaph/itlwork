@@ -12,4 +12,6 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+- (BOOL) textField: (NSTextField *) textField shouldChangeCharactersInRange: (NSRange) range replacementString: (NSString *) string;
+
 @end
