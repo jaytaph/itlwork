@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Growl/Growl.h>
 
 @interface itlwAppDelegate : NSObject <NSApplicationDelegate>
 

@@ -37,13 +37,23 @@
 
 
 - (IBAction)sendTweetClick:(id)sender {
-    NSString *s = [@"Sending tweet: " stringByAppendingString:[MessageBox stringValue]];
+    
+    // Load image from URL
+    NSURL * imageURL = [NSURL URLWithString:@"https://si0.twimg.com/profile_images/3298514384/de0bf3eb346caaded1d069a83b7066cd_bigger.jpeg"];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    
+    
+    // Send growl notification
+    [GrowlApplicationBridge notifyWithTitle:@"@JayTaph:"
+                                description:[MessageBox stringValue]
+                           notificationName:@"tweetReceived"
+                                   iconData:imageData
+                                   priority:0
+                                   isSticky:NO
+                               clickContext:nil];
+    
     [MessageBox setStringValue:@""];
     [MessageLength setStringValue:@"140"];  // @TODO: This should be triggered instead of manually added i guess.
-
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:s];
-    [alert runModal];
 
 }
 
