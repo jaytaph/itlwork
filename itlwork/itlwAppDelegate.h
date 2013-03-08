@@ -12,6 +12,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-- (BOOL) textField: (NSTextField *) textField shouldChangeCharactersInRange: (NSRange) range replacementString: (NSString *) string;
+@property (weak) IBOutlet NSTextField *tweetbox;
+@property (weak) IBOutlet NSView *TweetCount;
 
 @end

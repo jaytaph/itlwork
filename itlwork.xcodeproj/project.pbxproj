@@ -10,6 +10,7 @@
 		423E597316E9E649009DB652 /* itlw.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 423E597116E9E649009DB652 /* itlw.xcdatamodeld */; };
 		423E598216EA1AAC009DB652 /* foobar.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 423E598116EA1AAC009DB652 /* foobar.iconset */; };
 		423E598516EA1ADF009DB652 /* Tweet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423E598316EA1ADF009DB652 /* Tweet.xib */; };
+		423E598816EA2C02009DB652 /* itlwMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423E598716EA2C02009DB652 /* itlwMainViewController.m */; };
 		42474DBF16E8E5BB00ADD471 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42474DBE16E8E5BB00ADD471 /* Cocoa.framework */; };
 		42474DC916E8E5BB00ADD471 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42474DC716E8E5BB00ADD471 /* InfoPlist.strings */; };
 		42474DCB16E8E5BB00ADD471 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42474DCA16E8E5BB00ADD471 /* main.m */; };
@@ -22,6 +23,8 @@
 		423E597216E9E649009DB652 /* itlw.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = itlw.xcdatamodel; sourceTree = "<group>"; };
 		423E598116EA1AAC009DB652 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = foobar.iconset; path = images/foobar.iconset; sourceTree = "<group>"; };
 		423E598416EA1ADF009DB652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Tweet.xib; sourceTree = "<group>"; };
+		423E598616EA2C02009DB652 /* itlwMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainViewController.h; sourceTree = "<group>"; };
+		423E598716EA2C02009DB652 /* itlwMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainViewController.m; sourceTree = "<group>"; };
 		42474DBA16E8E5BB00ADD471 /* itlwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itlwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42474DBE16E8E5BB00ADD471 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		42474DC116E8E5BB00ADD471 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -110,6 +113,8 @@
 				423E597116E9E649009DB652 /* itlw.xcdatamodeld */,
 				42474DC516E8E5BB00ADD471 /* Supporting Files */,
 				42474DBD16E8E5BB00ADD471 /* Frameworks */,
+				423E598616EA2C02009DB652 /* itlwMainViewController.h */,
+				423E598716EA2C02009DB652 /* itlwMainViewController.m */,
 			);
 			path = itlwork;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				42474DCB16E8E5BB00ADD471 /* main.m in Sources */,
 				42474DD216E8E5BB00ADD471 /* itlwAppDelegate.m in Sources */,
 				423E597316E9E649009DB652 /* itlw.xcdatamodeld in Sources */,
+				423E598816EA2C02009DB652 /* itlwMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
