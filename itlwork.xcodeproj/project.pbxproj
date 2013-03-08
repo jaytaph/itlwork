@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		423E596F16E9D96C009DB652 /* tweet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423E596E16E9D96C009DB652 /* tweet.xib */; };
 		423E597316E9E649009DB652 /* itlw.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 423E597116E9E649009DB652 /* itlw.xcdatamodeld */; };
+		423E598216EA1AAC009DB652 /* foobar.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 423E598116EA1AAC009DB652 /* foobar.iconset */; };
+		423E598516EA1ADF009DB652 /* Tweet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423E598316EA1ADF009DB652 /* Tweet.xib */; };
 		42474DBF16E8E5BB00ADD471 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42474DBE16E8E5BB00ADD471 /* Cocoa.framework */; };
 		42474DC916E8E5BB00ADD471 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42474DC716E8E5BB00ADD471 /* InfoPlist.strings */; };
 		42474DCB16E8E5BB00ADD471 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42474DCA16E8E5BB00ADD471 /* main.m */; };
@@ -18,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		423E596E16E9D96C009DB652 /* tweet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tweet.xib; sourceTree = "<group>"; };
 		423E597216E9E649009DB652 /* itlw.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = itlw.xcdatamodel; sourceTree = "<group>"; };
+		423E598116EA1AAC009DB652 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = foobar.iconset; path = images/foobar.iconset; sourceTree = "<group>"; };
+		423E598416EA1ADF009DB652 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Tweet.xib; sourceTree = "<group>"; };
 		42474DBA16E8E5BB00ADD471 /* itlwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itlwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42474DBE16E8E5BB00ADD471 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		42474DC116E8E5BB00ADD471 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -33,7 +35,6 @@
 		42474DD016E8E5BB00ADD471 /* itlwAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = itlwAppDelegate.h; sourceTree = "<group>"; };
 		42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = itlwAppDelegate.m; sourceTree = "<group>"; };
 		42474DD416E8E5BB00ADD471 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		42474DDD16E8E81600ADD471 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = foobar.iconset; path = ../../../../Desktop/foobar.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +52,8 @@
 		423E597916EA1625009DB652 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				423E598316EA1ADF009DB652 /* Tweet.xib */,
 				42474DD316E8E5BB00ADD471 /* MainMenu.xib */,
-				423E596E16E9D96C009DB652 /* tweet.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -60,7 +61,7 @@
 		423E597A16EA163C009DB652 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				42474DDD16E8E81600ADD471 /* foobar.iconset */,
+				423E598116EA1AAC009DB652 /* foobar.iconset */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -182,7 +183,8 @@
 				42474DC916E8E5BB00ADD471 /* InfoPlist.strings in Resources */,
 				42474DCF16E8E5BB00ADD471 /* Credits.rtf in Resources */,
 				42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */,
-				423E596F16E9D96C009DB652 /* tweet.xib in Resources */,
+				423E598216EA1AAC009DB652 /* foobar.iconset in Resources */,
+				423E598516EA1ADF009DB652 /* Tweet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +204,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		423E598316EA1ADF009DB652 /* Tweet.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				423E598416EA1ADF009DB652 /* en */,
+			);
+			name = Tweet.xib;
+			sourceTree = "<group>";
+		};
 		42474DC716E8E5BB00ADD471 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -224,7 +234,8 @@
 				42474DD416E8E5BB00ADD471 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
+			path = itlwork;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
