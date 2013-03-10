@@ -13,8 +13,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-
 @property (weak) IBOutlet NSTextField *MessageBox;
 @property (weak) IBOutlet NSTextField *MessageLength;
+@property (weak) IBOutlet NSTableView *TweetTable;
 
 @end

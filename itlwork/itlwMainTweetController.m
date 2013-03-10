@@ -1,18 +1,18 @@
 //
-//  itlwMainViewController.m
+//  itlwMainTweetController.m
 //  itlwork
 //
 //  Created by Joshua Thijssen on 08-03-13.
 //  Copyright (c) 2013 NoxLogic. All rights reserved.
 //
 
-#import "itlwMainViewController.h"
+#import "itlwMainTweetController.h"
 
-@interface itlwMainViewController ()
+@interface itlwMainTweetController ()
 
 @end
 
-@implementation itlwMainViewController
+@implementation itlwMainTweetController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,5 +23,15 @@
     
     return self;
 }
+
+- (IBAction)performClick:(id)sender {
+}
+
+- (ud)loadTweets {
+    // Create array with tweets
+    
+    
+}
+
 
 @end

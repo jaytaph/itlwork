@@ -7,15 +7,34 @@
 //
 
 #import "itlwAppDelegate.h"
+#import "itlwMainTweetController.h"
 
 @implementation itlwAppDelegate
 
 @synthesize MessageBox;
 @synthesize MessageLength;
+@synthesize TweetTable;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    // create columns for our table
+    NSTableColumn *column1 = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
+    NSTableColumn *column2 = [[NSTableColumn alloc] initWithIdentifier:@"Col2"];
+    [column1 setWidth:250];
+    [column2 setWidth:250];
+    
+    NSTableHeaderCell *header1 = [[NSTableHeaderCell alloc] initTextCell:@"Header1"];
+    NSTableHeaderCell *header2 = [[NSTableHeaderCell alloc] initTextCell:@"Header2"];
+    [column1 setHeaderCell:header1];
+    [column2 setHeaderCell:header2];
+    
+    // generally you want to add at least one column to the table view.
+    [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
+    [TweetTable addTableColumn:column1];
+    [TweetTable addTableColumn:column2];
+    [TweetTable reloadData];
+    
+    [itlwMainTweetController loadTweets];
 }
 
 - (void)controlTextDidChange:(NSNotification *)notification {
