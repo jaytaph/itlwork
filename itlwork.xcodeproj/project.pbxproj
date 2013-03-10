@@ -15,8 +15,10 @@
 		42474DCF16E8E5BB00ADD471 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 42474DCD16E8E5BB00ADD471 /* Credits.rtf */; };
 		42474DD216E8E5BB00ADD471 /* itlwAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */; };
 		42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42474DD316E8E5BB00ADD471 /* MainMenu.xib */; };
+		424CB6EA16EC930C00B6DABE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CB6E916EC930C00B6DABE /* User.m */; };
+		424CB6ED16EC930C00B6DABE /* Columns.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CB6EC16EC930C00B6DABE /* Columns.m */; };
+		424CB6F016EC930C00B6DABE /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CB6EF16EC930C00B6DABE /* Tweet.m */; };
 		4253316516EC71A60002CF9C /* itlwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4253316316EC71A60002CF9C /* itlwork.xcdatamodeld */; };
-		4253316A16EC7DFD0002CF9C /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4253316916EC7DFD0002CF9C /* TweetCell.xib */; };
 		427F571C16EA4CF700B5684E /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F571F16EA5DCA00B5684E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F572116EA6C6800B5684E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */; };
@@ -52,8 +54,13 @@
 		42474DD016E8E5BB00ADD471 /* itlwAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = itlwAppDelegate.h; sourceTree = "<group>"; };
 		42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = itlwAppDelegate.m; sourceTree = "<group>"; };
 		42474DD416E8E5BB00ADD471 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		424CB6E816EC930C00B6DABE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		424CB6E916EC930C00B6DABE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		424CB6EB16EC930C00B6DABE /* Columns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Columns.h; sourceTree = "<group>"; };
+		424CB6EC16EC930C00B6DABE /* Columns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Columns.m; sourceTree = "<group>"; };
+		424CB6EE16EC930C00B6DABE /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		424CB6EF16EC930C00B6DABE /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		4253316416EC71A60002CF9C /* itlwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = itlwork.xcdatamodel; sourceTree = "<group>"; };
-		4253316916EC7DFD0002CF9C /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 		427F571B16EA4CF700B5684E /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				42474DD316E8E5BB00ADD471 /* MainMenu.xib */,
-				4253316916EC7DFD0002CF9C /* TweetCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -157,6 +163,12 @@
 			isa = PBXGroup;
 			children = (
 				4253316316EC71A60002CF9C /* itlwork.xcdatamodeld */,
+				424CB6EE16EC930C00B6DABE /* Tweet.h */,
+				424CB6EF16EC930C00B6DABE /* Tweet.m */,
+				424CB6EB16EC930C00B6DABE /* Columns.h */,
+				424CB6EC16EC930C00B6DABE /* Columns.m */,
+				424CB6E816EC930C00B6DABE /* User.h */,
+				424CB6E916EC930C00B6DABE /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -228,7 +240,6 @@
 				42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */,
 				423E598216EA1AAC009DB652 /* foobar.iconset in Resources */,
 				427F572116EA6C6800B5684E /* Growl Registration Ticket.growlRegDict in Resources */,
-				4253316A16EC7DFD0002CF9C /* TweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +254,9 @@
 				42474DD216E8E5BB00ADD471 /* itlwAppDelegate.m in Sources */,
 				423E598816EA2C02009DB652 /* itlwMainTweetController.m in Sources */,
 				4253316516EC71A60002CF9C /* itlwork.xcdatamodeld in Sources */,
+				424CB6EA16EC930C00B6DABE /* User.m in Sources */,
+				424CB6ED16EC930C00B6DABE /* Columns.m in Sources */,
+				424CB6F016EC930C00B6DABE /* Tweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
