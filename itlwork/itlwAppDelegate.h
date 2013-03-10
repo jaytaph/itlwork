@@ -17,4 +17,5 @@
 @property (weak) IBOutlet NSTextField *MessageLength;
 @property (weak) IBOutlet NSTableView *TweetTable;
 
+
 @end

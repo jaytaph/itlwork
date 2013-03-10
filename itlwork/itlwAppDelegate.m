@@ -32,9 +32,7 @@
     [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
     [TweetTable addTableColumn:column1];
     [TweetTable addTableColumn:column2];
-    [TweetTable reloadData];
-    
-    [itlwMainTweetController loadTweets];
+    [TweetTable reloadData];    
 }
 
 - (void)controlTextDidChange:(NSNotification *)notification {

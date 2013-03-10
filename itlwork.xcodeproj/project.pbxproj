@@ -128,7 +128,7 @@
 		42474DC416E8E5BB00ADD471 /* itlwork */ = {
 			isa = PBXGroup;
 			children = (
-				4253316616EC77350002CF9C /* Controlles */,
+				4253316616EC77350002CF9C /* Controllers */,
 				42474DD016E8E5BB00ADD471 /* itlwAppDelegate.h */,
 				42474DD116E8E5BB00ADD471 /* itlwAppDelegate.m */,
 				42474DC516E8E5BB00ADD471 /* Supporting Files */,
@@ -161,13 +161,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		4253316616EC77350002CF9C /* Controlles */ = {
+		4253316616EC77350002CF9C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				423E598616EA2C02009DB652 /* itlwMainTweetController.h */,
 				423E598716EA2C02009DB652 /* itlwMainTweetController.m */,
 			);
-			name = Controlles;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

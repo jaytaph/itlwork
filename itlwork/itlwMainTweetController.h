@@ -9,11 +9,15 @@
 #import <Cocoa/Cocoa.h>
 
 @interface itlwMainTweetController : NSViewController
+
+- (void)loadTweets;
+
 @property (strong) IBOutlet NSImageView *image;
 @property (strong) IBOutlet NSTextField *tweet;
 @property (strong) IBOutlet NSTextField *date;
 @property (strong) IBOutlet NSTextField *via;
 @property (strong) IBOutlet NSTextField *name;
 @property (strong) IBOutlet NSTextField *followers;
+@property (strong) IBOutlet NSManagedObjectContext *ManagedObjectContext;
 
 @end
