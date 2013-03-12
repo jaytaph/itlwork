@@ -6,48 +6,60 @@
 //  Copyright (c) 2013 NoxLogic. All rights reserved.
 //
 
-#import "itlwMainViewController.h"
+#import "itlwMainWindowController.h"
 #import "itlwTweetCell.h"
 #import "Columns.h"
+#import "Tweet.h"
+#import "user.h"
 #import <Growl/Growl.h>
 
-@interface itlwMainViewController ()
+@interface itlwMainWindowController ()
 
 @end
 
 
-@implementation itlwMainViewController
+@implementation itlwMainWindowController
 
 @synthesize MessageBox;
 @synthesize MessageLength;
 @synthesize TweetTable;
 
-//
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (!self) return self;
-//    
-//    // Fetch all columns
-//    NSManagedObjectContext *moc = [self managedObjectContext];
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Columns"];
-//    NSArray *fetchedColumns = [moc executeFetchRequest:fetchRequest error:nil];
-//    
-//    //    [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
-//    
-//    for (Columns *columnData in fetchedColumns) {
-//        NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
-//        [column setWidth:250];
-//        NSTableHeaderCell *header = [[NSTableHeaderCell alloc] initTextCell:columnData.name];
-//        [column setHeaderCell:header];
-//        [TweetTable addTableColumn:column];
-//    }
-//    [TweetTable reloadData];
-//    
-//    return self;
-//}
-//
-//
+@synthesize managedObjectModel;
+@synthesize managedObjectContext;
+
+
+
+- (id)initWithWindow:(NSWindow *)window
+{
+    self = [super initWithWindow:window];
+    if (! self) return self;
+    
+    // Fetch all columns
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Columns"];
+    NSArray *fetchedColumns = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    //    [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
+    
+    for (Columns *columnData in fetchedColumns) {
+        NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
+        [column setWidth:250];
+        NSTableHeaderCell *header = [[NSTableHeaderCell alloc] initTextCell:columnData.name];
+        [column setHeaderCell:header];
+        [TweetTable addTableColumn:column];
+    }
+    [TweetTable reloadData];
+    
+    return self;
+}
+
+
+- (void)windowDidLoad
+{
+    [super windowDidLoad];
+    
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
 
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -60,22 +72,35 @@
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    //    NSString *identifier = [tableColumn identifier];
-    
     // Get index of tableColumn
     NSUInteger idx = [[tableView tableColumns] indexOfObjectIdenticalTo:tableColumn];
     if (idx == NSNotFound) {
         return nil;
     }
     
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Tweet"];
+    [fetchRequest setFetchLimit:1];
+    [fetchRequest setFetchOffset:0];
+    NSArray *fetchedTweet = [moc executeFetchRequest:fetchRequest error:nil];
+    Tweet *tweet = [fetchedTweet objectAtIndex:0];
     
     itlwTweetCell *cellView = [tableView makeViewWithIdentifier:@"TweetCellView" owner:self];
-    cellView.date = [NSDate date];
-    //    NSTextField *a = [cellView via];
-    //    [a setValue:@"via Echofon"];
-    //    [cellView.followers setValue:[NSString stringWithFormat:@"%i", rand() * 10000]];
-    //    [cellView.tweet setValue:@"@JayTaph i have no direct tips for books but you might want to talk to @CocoaHeadsNL or attend their meetings."];
-    //    [cellView.name setValue:@"@TechAdemy"];
+    
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EE dd-MM HH:mm"];
+    cellView.date.stringValue = [dateFormat stringFromDate:today];
+    
+    cellView.via.stringValue = tweet.via;
+    
+    cellView.followers.stringValue = [NSString stringWithFormat:@"%i", tweet.followers];
+    
+    cellView.tweet.stringValue = tweet.tweet;
+    
+    User *user = [tweet user];
+    cellView.name.stringValue = user.name;
+    
     return cellView;
 }
 
@@ -99,8 +124,7 @@
 }
 
 
-- (IBAction)sendTweetClick:(id)sender {
-    
+- (IBAction)tweetButtonCliq:(NSButton *)sender {
     NSString *msg = [MessageBox stringValue];
     if ([msg length] == 0) return;
     
@@ -122,6 +146,5 @@
                                    isSticky:NO
                                clickContext:nil];
 }
-
 
 @end

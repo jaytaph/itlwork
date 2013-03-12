@@ -15,4 +15,11 @@
 
 @implementation itlwTweetCell
 
+@synthesize image;
+@synthesize tweet;
+@synthesize date;
+@synthesize via;
+@synthesize name;
+@synthesize followers;
+
 @end

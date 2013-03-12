@@ -7,22 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "itlwMainViewController.h"
-
-@class itlwMainViewController;
-
-itlwMainViewController *mainViewController;
+#import "itlwMainWindowController.h"
 
 @interface itlwAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
-@property (nonatomic, retain) IBOutlet itlwMainViewController *myVC;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (unsafe_unretained) IBOutlet NSViewController *mainViewController;
+@property (strong) itlwMainWindowController *mainWindowController;
 
 @end
 

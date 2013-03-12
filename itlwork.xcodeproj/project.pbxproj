@@ -22,7 +22,7 @@
 		427F571C16EA4CF700B5684E /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F571F16EA5DCA00B5684E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F572116EA6C6800B5684E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */; };
-		429485F716EE50FD00CB9E26 /* itlwMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429485F616EE50FD00CB9E26 /* itlwMainViewController.m */; };
+		429485F716EE50FD00CB9E26 /* itlwMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429485F616EE50FD00CB9E26 /* itlwMainWindowController.m */; };
 		4294860116EE6E4600CB9E26 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4294860016EE6E4600CB9E26 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +65,8 @@
 		4253316416EC71A60002CF9C /* itlwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = itlwork.xcdatamodel; sourceTree = "<group>"; };
 		427F571B16EA4CF700B5684E /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		429485F516EE50FD00CB9E26 /* itlwMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainViewController.h; sourceTree = "<group>"; };
-		429485F616EE50FD00CB9E26 /* itlwMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainViewController.m; sourceTree = "<group>"; };
+		429485F516EE50FD00CB9E26 /* itlwMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainWindowController.h; sourceTree = "<group>"; };
+		429485F616EE50FD00CB9E26 /* itlwMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainWindowController.m; sourceTree = "<group>"; };
 		4294860016EE6E4600CB9E26 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,8 +184,8 @@
 			children = (
 				423E598616EA2C02009DB652 /* itlwTweetCell.h */,
 				423E598716EA2C02009DB652 /* itlwTweetCell.m */,
-				429485F516EE50FD00CB9E26 /* itlwMainViewController.h */,
-				429485F616EE50FD00CB9E26 /* itlwMainViewController.m */,
+				429485F516EE50FD00CB9E26 /* itlwMainWindowController.h */,
+				429485F616EE50FD00CB9E26 /* itlwMainWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 				424CB6EA16EC930C00B6DABE /* User.m in Sources */,
 				424CB6ED16EC930C00B6DABE /* Columns.m in Sources */,
 				424CB6F016EC930C00B6DABE /* Tweet.m in Sources */,
-				429485F716EE50FD00CB9E26 /* itlwMainViewController.m in Sources */,
+				429485F716EE50FD00CB9E26 /* itlwMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

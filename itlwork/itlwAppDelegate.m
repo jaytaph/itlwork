@@ -7,7 +7,7 @@
 //
 
 #import "itlwAppDelegate.h"
-#import "itlwMainViewController.h"
+#import "itlwMainWindowController.h"
 #import "itlwTweetCell.h"
 #import "Columns.h"
 #import "User.h"
@@ -20,11 +20,11 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
-NSViewController *viewController;
+itlwMainWindowController *mainWindowController;
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    
+{    
     NSManagedObjectContext *moc = [self managedObjectContext];
     
     User *user1 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:moc];
@@ -81,8 +81,11 @@ NSViewController *viewController;
     [moc save:nil];
     
     
-    mainViewController = [[itlwMainViewController alloc] initWithWindowNibName:@"MainWindow"];
-    [mainViewController showWindow:self];
+    // Show main window
+    _mainWindowController = [[itlwMainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    _mainWindowController.managedObjectModel = [self managedObjectModel];
+    _mainWindowController.managedObjectContext = [self managedObjectContext];
+    [self.mainWindowController showWindow:self];
 }
 
 
