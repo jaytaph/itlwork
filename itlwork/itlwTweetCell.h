@@ -1,5 +1,5 @@
 //
-//  itlwMainViewController.h
+//  itlwTweetCell
 //  itlwork
 //
 //  Created by Joshua Thijssen on 08-03-13.
@@ -8,16 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface itlwMainTweetController : NSViewController
+@interface itlwTweetCell : NSTableCellView
 
-- (void)loadTweets;
-
-@property (strong) IBOutlet NSImageView *image;
+@property (strong) IBOutlet NSImageCell *image;
 @property (strong) IBOutlet NSTextField *tweet;
 @property (strong) IBOutlet NSTextField *date;
 @property (strong) IBOutlet NSTextField *via;
 @property (strong) IBOutlet NSTextField *name;
 @property (strong) IBOutlet NSTextField *followers;
-@property (strong) IBOutlet NSManagedObjectContext *ManagedObjectContext;
 
 @end

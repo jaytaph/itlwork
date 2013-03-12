@@ -18,8 +18,8 @@
         <relationship name="tweets" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tweet" inverseName="user" inverseEntity="Tweet" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Columns" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="Tweet" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Columns" positionX="-126" positionY="261" width="128" height="60"/>
+        <element name="Tweet" positionX="-18" positionY="123" width="128" height="120"/>
         <element name="User" positionX="-236" positionY="123" width="128" height="120"/>
     </elements>
 </model>

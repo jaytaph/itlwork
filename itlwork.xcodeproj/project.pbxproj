@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		423E598216EA1AAC009DB652 /* foobar.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 423E598116EA1AAC009DB652 /* foobar.iconset */; };
-		423E598816EA2C02009DB652 /* itlwMainTweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 423E598716EA2C02009DB652 /* itlwMainTweetController.m */; };
+		423E598816EA2C02009DB652 /* itlwTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 423E598716EA2C02009DB652 /* itlwTweetCell.m */; };
 		42474DBF16E8E5BB00ADD471 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42474DBE16E8E5BB00ADD471 /* Cocoa.framework */; };
 		42474DC916E8E5BB00ADD471 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42474DC716E8E5BB00ADD471 /* InfoPlist.strings */; };
 		42474DCB16E8E5BB00ADD471 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42474DCA16E8E5BB00ADD471 /* main.m */; };
@@ -22,6 +22,8 @@
 		427F571C16EA4CF700B5684E /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F571F16EA5DCA00B5684E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 427F571B16EA4CF700B5684E /* Growl.framework */; };
 		427F572116EA6C6800B5684E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */; };
+		429485F716EE50FD00CB9E26 /* itlwMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429485F616EE50FD00CB9E26 /* itlwMainViewController.m */; };
+		4294860116EE6E4600CB9E26 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4294860016EE6E4600CB9E26 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,8 +41,8 @@
 
 /* Begin PBXFileReference section */
 		423E598116EA1AAC009DB652 /* foobar.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = foobar.iconset; path = images/foobar.iconset; sourceTree = "<group>"; };
-		423E598616EA2C02009DB652 /* itlwMainTweetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainTweetController.h; sourceTree = "<group>"; };
-		423E598716EA2C02009DB652 /* itlwMainTweetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainTweetController.m; sourceTree = "<group>"; };
+		423E598616EA2C02009DB652 /* itlwTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwTweetCell.h; sourceTree = "<group>"; };
+		423E598716EA2C02009DB652 /* itlwTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwTweetCell.m; sourceTree = "<group>"; };
 		42474DBA16E8E5BB00ADD471 /* itlwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itlwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42474DBE16E8E5BB00ADD471 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		42474DC116E8E5BB00ADD471 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,6 +65,9 @@
 		4253316416EC71A60002CF9C /* itlwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = itlwork.xcdatamodel; sourceTree = "<group>"; };
 		427F571B16EA4CF700B5684E /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		427F572016EA6C6800B5684E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		429485F516EE50FD00CB9E26 /* itlwMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itlwMainViewController.h; sourceTree = "<group>"; };
+		429485F616EE50FD00CB9E26 /* itlwMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itlwMainViewController.m; sourceTree = "<group>"; };
+		4294860016EE6E4600CB9E26 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 		423E597916EA1625009DB652 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				4294860016EE6E4600CB9E26 /* MainWindow.xib */,
 				42474DD316E8E5BB00ADD471 /* MainMenu.xib */,
 			);
 			name = Xibs;
@@ -176,8 +182,10 @@
 		4253316616EC77350002CF9C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				423E598616EA2C02009DB652 /* itlwMainTweetController.h */,
-				423E598716EA2C02009DB652 /* itlwMainTweetController.m */,
+				423E598616EA2C02009DB652 /* itlwTweetCell.h */,
+				423E598716EA2C02009DB652 /* itlwTweetCell.m */,
+				429485F516EE50FD00CB9E26 /* itlwMainViewController.h */,
+				429485F616EE50FD00CB9E26 /* itlwMainViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				42474DD516E8E5BB00ADD471 /* MainMenu.xib in Resources */,
 				423E598216EA1AAC009DB652 /* foobar.iconset in Resources */,
 				427F572116EA6C6800B5684E /* Growl Registration Ticket.growlRegDict in Resources */,
+				4294860116EE6E4600CB9E26 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,11 +261,12 @@
 			files = (
 				42474DCB16E8E5BB00ADD471 /* main.m in Sources */,
 				42474DD216E8E5BB00ADD471 /* itlwAppDelegate.m in Sources */,
-				423E598816EA2C02009DB652 /* itlwMainTweetController.m in Sources */,
+				423E598816EA2C02009DB652 /* itlwTweetCell.m in Sources */,
 				4253316516EC71A60002CF9C /* itlwork.xcdatamodeld in Sources */,
 				424CB6EA16EC930C00B6DABE /* User.m in Sources */,
 				424CB6ED16EC930C00B6DABE /* Columns.m in Sources */,
 				424CB6F016EC930C00B6DABE /* Tweet.m in Sources */,
+				429485F716EE50FD00CB9E26 /* itlwMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

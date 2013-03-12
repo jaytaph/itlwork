@@ -7,30 +7,26 @@
 //
 
 #import "itlwAppDelegate.h"
-#import "itlwMainTweetController.h"
+#import "itlwMainViewController.h"
+#import "itlwTweetCell.h"
 #import "Columns.h"
 #import "User.h"
 #import "Tweet.h"
 
-@implementation itlwAppDelegate
+@implementation itlwAppDelegate 
 
-@synthesize MessageBox;
-@synthesize MessageLength;
-@synthesize TweetTable;
-@synthesize ManagedObjectContext;
+//@synthesize TweetTable;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize managedObjectContext = _managedObjectContext;
+
+NSViewController *viewController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Add core data
-    NSManagedObjectContext *moc = [self ManagedObjectContext];
     
-    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-    NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
-    if (persistentStoreCoordinator != nil) {
-        ManagedObjectContext = [[NSManagedObjectContext alloc] init];
-        [ManagedObjectContext setPersistentStoreCoordinator: persistentStoreCoordinator];
-    }
-
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    
     User *user1 = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:moc];
     
     user1.id_str = @"deadbeef";
@@ -48,12 +44,23 @@
     tweet.tweet = @"Hello tweet!";
     [moc save:nil];
     
-    tweet = [NSEntityDescription insertNewObjectForEntityForName:@"Tweet2" inManagedObjectContext:moc];
+    tweet = [NSEntityDescription insertNewObjectForEntityForName:@"Tweet" inManagedObjectContext:moc];
     tweet.date=[NSDate date];
     tweet.via = @"itlwork";
     tweet.user = user1;
     tweet.id_str = @"3453161161";
     tweet.tweet = @"Another tweet";
+    [moc save:nil];
+    
+    NSFetchRequest *allColumns = [[NSFetchRequest alloc] init];
+    [allColumns setEntity:[NSEntityDescription entityForName:@"Columns" inManagedObjectContext:moc]];
+    [allColumns setIncludesPropertyValues:NO];
+    
+    // Remove all existing columns. We start with a fresh set
+    NSArray *columns = [moc executeFetchRequest:allColumns error:nil];
+    for (NSManagedObject *column in columns) {
+        [moc deleteObject:column];
+    }
     [moc save:nil];
     
     
@@ -63,99 +70,117 @@
     Columns *column2 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
     column2.name = @"Mentions - @jaytaph";
     
-    Columns *column3 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
-    column3.name = @"Direct messages - @jaytaph";
-    
-    Columns *column4 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
-    column4.name = @"Search - #saffire";
-    
-    Columns *column5 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
-    column5.name = @"Search - #techademy";
-
-    
+//    Columns *column3 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
+//    column3.name = @"Direct messages - @jaytaph";
+//    
+//    Columns *column4 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
+//    column4.name = @"Search - #saffire";
+//    
+//    Columns *column5 = [NSEntityDescription insertNewObjectForEntityForName:@"Columns" inManagedObjectContext:moc];
+//    column5.name = @"Search - #techademy";
     [moc save:nil];
-
     
     
-    
-    // Fetch all columns
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Columns"];
-    NSArray *fetchedColumns = [moc executeFetchRequest:fetchRequest error:nil];
-    
-    [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
-
-    for (Columns *columnData in fetchedColumns) {
-        NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
-        [column setWidth:250];
-        NSTableHeaderCell *header = [[NSTableHeaderCell alloc] initTextCell:columnData.name];
-        [column setHeaderCell:header];
-        [TweetTable addTableColumn:column];
-    }
-    [TweetTable reloadData];
-    
-    
-/*
-    // create columns for our table
-    NSTableColumn *column1 = [[NSTableColumn alloc] initWithIdentifier:@"Col1"];
-    NSTableColumn *column2 = [[NSTableColumn alloc] initWithIdentifier:@"Col2"];
-    [column1 setWidth:250];
-    [column2 setWidth:250];
-    
-    NSTableHeaderCell *header1 = [[NSTableHeaderCell alloc] initTextCell:@"Header1"];
-    NSTableHeaderCell *header2 = [[NSTableHeaderCell alloc] initTextCell:@"Header2"];
-    [column1 setHeaderCell:header1];
-    [column2 setHeaderCell:header2];
-    
-    // generally you want to add at least one column to the table view.
-    [TweetTable removeTableColumn:[[TweetTable tableColumns] lastObject]];
-    [TweetTable addTableColumn:column1];
-    [TweetTable addTableColumn:column2];
-    
-*/
+    mainViewController = [[itlwMainViewController alloc] initWithWindowNibName:@"MainWindow"];
+    [mainViewController showWindow:self];
 }
 
-- (void)controlTextDidChange:(NSNotification *)notification {
-    NSTextField *textField = [notification object];
 
-    NSInteger left = 140 - [[textField stringValue] length];
-    NSString *s = [NSString stringWithFormat:@"%li", left];
 
-    if (left < 0) {
-        [MessageLength setTextColor:[NSColor redColor]];
-    } else if (left < 14) {
-        [MessageLength setTextColor:[NSColor blueColor]];
+// Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.noxlogic.test" in the user's Application Support directory.
+- (NSURL *)applicationFilesDirectory
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
+    return [appSupportURL URLByAppendingPathComponent:@"com.noxlogic.itlwork"];
+}
+
+// Creates if necessary and returns the managed object model for the application.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel) {
+        return _managedObjectModel;
+    }
+	
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"itlwork" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+// Returns the persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.)
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator) {
+        return _persistentStoreCoordinator;
+    }
+    
+    NSManagedObjectModel *mom = [self managedObjectModel];
+    if (!mom) {
+        NSLog(@"%@:%@ No model to generate a store from", [self class], NSStringFromSelector(_cmd));
+        return nil;
+    }
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+    NSError *error = nil;
+    
+    NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:@[NSURLIsDirectoryKey] error:&error];
+    
+    if (!properties) {
+        BOOL ok = NO;
+        if ([error code] == NSFileReadNoSuchFileError) {
+            ok = [fileManager createDirectoryAtPath:[applicationFilesDirectory path] withIntermediateDirectories:YES attributes:nil error:&error];
+        }
+        if (!ok) {
+            [[NSApplication sharedApplication] presentError:error];
+            return nil;
+        }
     } else {
-        [MessageLength setTextColor:[NSColor blackColor]];
+        if (![properties[NSURLIsDirectoryKey] boolValue]) {
+            // Customize and localize this error.
+            NSString *failureDescription = [NSString stringWithFormat:@"Expected a folder to store application data, found a file (%@).", [applicationFilesDirectory path]];
+            
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setValue:failureDescription forKey:NSLocalizedDescriptionKey];
+            error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:101 userInfo:dict];
+            
+            [[NSApplication sharedApplication] presentError:error];
+            return nil;
+        }
     }
-
-    [MessageLength setStringValue: s];
+    
+    NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"itlwork.storedata"];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+        return nil;
+    }
+    _persistentStoreCoordinator = coordinator;
+    
+    return _persistentStoreCoordinator;
 }
 
-
-- (IBAction)sendTweetClick:(id)sender {
+// Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
     
-    NSString *msg = [MessageBox stringValue];
-    if ([msg length] == 0) return;
-
-    // Reset tweet box and counter
-    [MessageBox setStringValue:@""];
-    [MessageLength setStringValue:@"140"];  // @TODO: This should be triggered instead of manually added i guess.
-
-    // Load image from URL
-    NSURL * imageURL = [NSURL URLWithString:@"https://si0.twimg.com/profile_images/3298514384/de0bf3eb346caaded1d069a83b7066cd_bigger.jpeg"];
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (!coordinator) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
+        [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
+        NSError *error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        [[NSApplication sharedApplication] presentError:error];
+        return nil;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     
-    
-    // Send growl notification
-    [GrowlApplicationBridge notifyWithTitle:@"@JayTaph:"
-                                description:msg
-                           notificationName:@"tweetReceived"
-                                   iconData:imageData
-                                   priority:0
-                                   isSticky:NO
-                               clickContext:nil];
+    return _managedObjectContext;
 }
-
 
 
 @end
